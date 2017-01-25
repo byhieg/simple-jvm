@@ -1,10 +1,8 @@
 package classpath
 
 import "os"
-import (
-	"path/filepath"
-	"debug/dwarf"
-)
+import "path/filepath"
+
 
 type Classpath struct {
 	bootClasspath Entry
@@ -62,7 +60,7 @@ func getDir(jreOption string) string{
 	if exists("./jre"){
 		return "./jre"
 	}
-	if jh  := os.Getenv("JAVA_HOME");jh!= nil{
+	if jh  := os.Getenv("JAVA_HOME");jh != ""{
 		return filepath.Join(jh,"jre")
 	}
 	panic("Can not find jre folder!")
